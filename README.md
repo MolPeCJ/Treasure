@@ -7,7 +7,7 @@ transferring your ERC20 compatible tokens from one wallet to another.
 
 ***
 
-### Instalalation
+### Instalation
 
 bash  
 ```yarn install```

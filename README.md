@@ -13,12 +13,13 @@ bash
 
 ### How to use
 
-Open ```scripts/deploys.js``` and enter the required addresses separated by commas in the ```users``` field. Then open ```scripts/verify.js``` and enter the addresses again. Then proceed to the deploy process ->
+Open *scripts/deploys.js* and enter the required addresses separated by commas in the *users* field.  
+Then open *scripts/verify.js* and enter the addresses again. Then proceed to the deploy process ->
 
 ### Deploying contract
 
-```npx hardhat run scripts/deploy.js --network *select network*"```
+```npx hardhat run scripts/deploy.js --network *select network*```
 
 ### Verify contract
 
-```npx hardhat run scripts/verify.js --network *select network*"```
+```npx hardhat run scripts/verify.js --network *select network*```

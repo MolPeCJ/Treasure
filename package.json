@@ -1,7 +1,19 @@
 {
   "name": "treasure",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "0.0.1",
+  "description": "This repository contains the smart contract allowed to do bulk distribution of erc-20 tokens",
+  "main": "hardhat.config.js",
+  "scripts": {
+    "deploy": "npx hardhat run scripts/deploy.js --network *select network*",
+    "verify": "npx hardhat run scripts/verify.js --network *select network*"
+  },
+  "repository": "https://github.com/MolPeCJ/Treasure",
+  "keywords": [
+    "Treasure",
+    "erc20",
+    "distribution"
+  ],
+  "author": "MolPeCJ",
   "license": "MIT",
   "dependencies": {
     "@nomiclabs/hardhat-etherscan": "^3.0.3",

@@ -1,15 +1,24 @@
-# Basic Sample Hardhat Project
+### Description
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+The smart contract "Treasure" allows to do bulk distribution of ethereum tokens.  
+The “Treasure Smart Contract” allows you to easily distribute your tokens to multiple wallets/addresses in one transaction.  
+It could help you to reduce the electricity, man-power, transaction fee, and gas requirements while transferring your ERC20 compatible tokens from one wallet to another.
 
-Try running some of the following tasks:
+***
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
-```
+### Instalalation
+
+bash  
+```yarn install```
+
+### How to use
+
+Open ```scripts/deploys.js``` and enter the required addresses separated by commas in the ```users``` field. Then open ```scripts/verify.js``` and enter the addresses again. Then proceed to the deploy process ->
+
+### Deploying contract
+
+```npx hardhat run scripts/deploy.js --network *select network*"```
+
+### Verify contract
+
+```npx hardhat run scripts/verify.js --network *select network*"```

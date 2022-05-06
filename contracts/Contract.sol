@@ -1,8 +1,7 @@
 //SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity 0.8.13;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-//import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Treasure is Ownable {
@@ -12,10 +11,10 @@ contract Treasure is Ownable {
         uint256 portion; 
     }
 
-    Data[] data;
+    Data[] public data;
 
     constructor(address[] memory _users, uint256[] memory _portions) {
-        for(uint i = 0; i < _users.length; i++) {
+        for (uint i = 0; i < _users.length; i++) {
             Data memory info = Data({
                 user: _users[i],
                 portion: _portions[i]
@@ -37,7 +36,8 @@ contract Treasure is Ownable {
     function _remoteUser(address _user) external onlyOwner returns (bool) {
         for (uint i = 0; i < data.length; i++) {
             if (data[i].user == _user) {
-                delete data[i];
+                data[i] = data[data.length - 1];
+                data.pop();
 
                 return true;
             }
@@ -60,9 +60,14 @@ contract Treasure is Ownable {
 
     function distribute(address _token) external returns (bool) {
         uint256 amount = IERC20(_token).balanceOf(address(this));
+        uint256 sum = 0;
 
-        for(uint i = 0; i < data.length; i++) {
-            IERC20(_token).transfer(data[i].user, amount / 100 * data[i].portion);
+        for (uint i = 0; i < data.length; i++) {
+            sum += data[i].portion;
+        }
+
+        for (uint i = 0; i < data.length; i++) {
+            IERC20(_token).transfer(data[i].user, amount / sum * data[i].portion);
         }
 
         return true;

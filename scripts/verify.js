@@ -16,7 +16,7 @@ async function main() {
     await hre.run("verify:verify", {
       address: data.Treasure,
       constructorArguments: [users, portions],
-      contract: "contracts/Contract.sol:Treasure",
+      contract: "contracts/Treasure.sol:Treasure",
     });
   } catch (e) {
     console.log(e);
